@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/31 18:29:56 by iben-haj          #+#    #+#             */
+/*   Updated: 2023/11/19 21:06:45 by iben-haj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_strncmp(const char *s, const char *p, size_t n)
+{
+	while (*s != '\0' && *(unsigned char *)s == *(unsigned char *)p && n > 0)
+	{
+		s++;
+		p++;
+		n--;
+	}
+	if (n == 0)
+		return (0);
+	return (*(unsigned char *)s - *(unsigned char *)p);
+}
+/*=====================testing=======
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    size_t n = 7;
+
+    printf("%d\n", ft_strncmp("NULL", NULL, n));
+    printf("%d\n", strncmp("NULL", NULL, n));
+
+  
+    return 0;
+}
+====================================*/
