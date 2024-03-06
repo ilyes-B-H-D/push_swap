@@ -42,7 +42,7 @@ static void	set_target_a(t_stack *a, t_stack *b)
 			current_b = current_b->next; 
 		}
 		if (best_match == LONG_MIN)
-			a->target_node = find_max(b);
+			a->target_node = ft_find_max(b);
 		else
 			a->target_node = target_node;
 		a = a->next;

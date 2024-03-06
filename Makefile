@@ -23,6 +23,8 @@ SRC =	./srcs/operations/push.c \
 		./srcs/push_swap/sort_stacks.c \
 		./srcs/push_swap/stack_utils.c \
 		./srcs/push_swap/split.c \
+		./srcs/push_swap/init_a_to_b.c \
+		./srcs/push_swap/init_b_to_a.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -31,11 +33,11 @@ PRINTF = ft_printf/libftprintf.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra #-Werror
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(OBJ)
 	@make -C libft
 	@make -C ft_printf
 	@$(CC) $(FLAGS) $(SRC) $(LIBFT) $(PRINTF) -o $(NAME)

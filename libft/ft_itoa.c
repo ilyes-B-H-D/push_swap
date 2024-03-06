@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:12:34 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/03 15:20:34 by iben-haj         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:55:20 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_number_size(int n)
+static int	ft_number_size(int n)
 {
 	int	len;
 

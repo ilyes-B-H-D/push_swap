@@ -21,7 +21,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 			current_a = current_a->next;
 		}
 		if (best_match_index == LONG_MAX)
-			b->target_node = find_min(a); 
+			b->target_node = ft_find_min(a); 
 		else
 			b->target_node = target_node;
 		b = b->next;
