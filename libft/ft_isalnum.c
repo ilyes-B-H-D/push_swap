@@ -16,16 +16,3 @@ int	ft_isalnum(int i)
 {
 	return (ft_isalpha(i) || ft_isdigit(i));
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-	if (ft_isalnum('a') == 1)
-		printf("a is alpha numerique\n");
-	if (ft_isalnum(5) == 1)
-		printf("5 is alpha numerique\n");
-	if (ft_isalnum('#') == 0)
-		printf("# is not an alpha numerique\n");
-}
-====================================*/

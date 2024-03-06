@@ -24,15 +24,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    char *p = calloc(0xffffffff ,0xffffffff);
-    char *p2 = ft_calloc(0xffffffff, 0xffffffff);
-
-    if (p) printft("done"); else printft("error"); 
-    if (p2) printft("done"); else printft("error"); 
-}
-====================================*/

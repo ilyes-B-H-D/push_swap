@@ -18,12 +18,3 @@ int	ft_isprint(int i)
 		return (1);
 	return (0);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-	if (ft_isprint('a') == 1)
-		printf("a is printable\n");
-}
-====================================*/

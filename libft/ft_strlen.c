@@ -21,13 +21,3 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-	const char str[20] = "Hello world!";
-	
-	printf("the length is : %d\n",ft_strlen(str));
-}
-====================================*/

@@ -21,15 +21,3 @@ void	ft_putstr_fd(char *s, int fd)
 	len = ft_strlen(s);
 	write(fd, s, len);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main() {
-    char *m = "Hello, world!";
-    int fd = 1;  
-
-    ft_putstr_fd(m, fd);
-
-    return 0;
-}
-====================================*/

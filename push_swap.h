@@ -26,8 +26,6 @@ void			ft_free_stack(t_stack **stack);
 void			ft_free_errors(t_stack **a);
 
 
-int ft_is_valid_input(int ac, char **av);
-
 void ft_swap(t_stack** stack);
 void ft_rotate(t_stack** stack);
 

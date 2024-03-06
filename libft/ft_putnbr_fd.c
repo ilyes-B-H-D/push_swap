@@ -29,15 +29,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    int number = -12345;
-
-    ft_putnbr_fd(number, 1);
-
-    return 0;
-}
-====================================*/

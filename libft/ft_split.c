@@ -81,27 +81,3 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	return (res);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main(int argc, char **av) {
-(void)argc;
-const char *input = av[1];
-char delimiter = av[2][0];
-
-char **words = ft_split(input, delimiter);
-
-if (words) {
-	int i = 0;
-	while (words[i]) 
-	{
-		printf("Word %d: %s\n", i + 1, words[i]);
-		i++;
-	}
-} 
-else 
-	printf("Memory allocation failed.\n");
-
-return 0;
-}
-====================================*/

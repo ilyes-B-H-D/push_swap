@@ -24,18 +24,3 @@ int	ft_strncmp(const char *s, const char *p, size_t n)
 		return (0);
 	return (*(unsigned char *)s - *(unsigned char *)p);
 }
-/*=====================testing=======
-#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-    size_t n = 7;
-
-    printf("%d\n", ft_strncmp("NULL", NULL, n));
-    printf("%d\n", strncmp("NULL", NULL, n));
-
-  
-    return 0;
-}
-====================================*/

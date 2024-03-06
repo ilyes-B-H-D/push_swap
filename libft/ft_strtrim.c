@@ -35,23 +35,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	return (str);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    const char *input = "   Hello, world!   ";
-    const char *set = " ";
-
-    char *result = ft_strtrim(input, set);
-
-    if (result != NULL)
-    {
-        printf("Original string: \"%s\"\n", input);
-        printf("Trimmed string: \"%s\"\n", result);
-    }
-    else
-        printf("Memory allocation failed.\n");
-    return 0;
-}
-====================================*/

@@ -54,21 +54,3 @@ char	*ft_itoa(int n)
 	}
 	return (ret);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    int number = -12345;
-    char *str = ft_itoa(number);
-
-    if (str != NULL)
-    {
-        printf("Integer: %d\n", number);
-        printf("String representation: %s\n", str);
-    }
-    else
-        printf("Memory allocation failed.\n");
-    return 0;
-}
-====================================*/

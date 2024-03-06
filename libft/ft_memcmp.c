@@ -29,24 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*====================testing===========
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char str1[] = "Hello";
-    char str2[] = "World";
-
-    int result = ft_memcmp(str1, str2, 5);
-
-    if (result == 0) {
-        printf("The two strings are equal.\n");
-    } else if (result < 0) {
-        printf("str1 is less than str2.\n");
-    } else {
-        printf("str1 is greater than str2.\n");
-    }
-
-    return 0;
-}
-==========================================*/

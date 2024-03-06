@@ -36,19 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int	main(void)
-{
-	const char	*str = " 646468468";
-	int			result;
-
-	result = ft_atoi(str);
-	printf("Converted ft_atoi: %d\n", result);
-
-	result = atoi(str);
-	printf("Converted atoi: %d\n", result);
-	return (0);
-}
-====================================*/

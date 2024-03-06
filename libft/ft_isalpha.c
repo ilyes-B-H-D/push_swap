@@ -16,14 +16,3 @@ int	ft_isalpha(int i)
 {
 	return (('a' <= i && i <= 'z') || ('A' <= i && i <= 'Z'));
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-	if (ft_isalpha('a') == 1)
-		printf("a is an alpha");
-	if (ft_isalpha('5') == 0)
-		printf("5 is not an alpha");
-}
-====================================*/

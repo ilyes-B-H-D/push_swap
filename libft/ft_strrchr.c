@@ -29,21 +29,3 @@ char	*ft_strrchr(const char *str, int c)
 		t = ((char *)&str[i]);
 	return (t);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    const char *str = "This is a sample string";
-    int to_find = 'a';
-
-    char *result = strrchr(str, to_find);
-
-    if (result)
-        printf("Character '%c' found at : %ld\n", to_find, result - str);
-    else
-        printf("Character '%c' not found in the string.\n", to_find);
-
-    return 0;
-}
-====================================*/

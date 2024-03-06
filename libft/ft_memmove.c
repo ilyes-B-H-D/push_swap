@@ -31,15 +31,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(dest, src, n);
 	return (dest);
 }
-/*==========testing=====
-#include <string.h>
-#include <stdio.h>
-int main()
-{
-	char dest[] = "dsa";
-
-	printf("%s\n", ft_memmove(NULL, dest, 3));
-	printf("%s\n", memmove(NULL, dest, 3));
-}
-
-===========================*/

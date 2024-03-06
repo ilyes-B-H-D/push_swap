@@ -22,14 +22,3 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, s, len);
 	write(fd, "\n", 1);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main() {
-	char *m = "Hello, world!";
-	int fd = 1;  
-
-	ft_putendl_fd(m, fd);
-	return 0;
-}
-====================================*/

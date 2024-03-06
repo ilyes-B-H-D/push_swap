@@ -16,12 +16,3 @@ int	ft_isascii(int i)
 {
 	return ((i >= 0 && i <= 127));
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-	if (ft_isascii('a') == 1)
-		printf("a is an ascii\n");
-}
-====================================*/

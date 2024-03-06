@@ -23,20 +23,3 @@ t_list	*ft_lstnew(void *content)
 	e->next = NULL;
 	return (e);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    int value = 1337;
-
-    t_list *newNode = ft_lstnew(&value);
-
-    if (newNode != NULL)
-        printf("New node content: %d\n", *((int *)(newNode->content)));
-    else
-        printf("Memory allocation failed.\n");
-
-    return 0;
-}
-====================================*/

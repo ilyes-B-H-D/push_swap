@@ -32,16 +32,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		dst[i + j] = '\0';
 	return (i + ft_strlen(src));
 }
-/*=====================testing=======
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char str[] = "aa";
-	str[2] = 'a';
-    printf("Totaln: %zu\n",  ft_strlcat(NULL,str, 5	));
-    printf("Total %zu\n",  strlcat(NULL,str, 5	));
-
-    return 0;
-}
-====================================*/

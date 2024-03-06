@@ -34,25 +34,3 @@ char	*ft_strnstr(const char *b, const char *l, size_t len)
 	}
 	return (NULL);
 }
-/*=====================testing=======
-#include <stdio.h>
-
-int main()
-{
-    const char *haystack = "Hello, this is a sample string.";
-    const char *needle = "sample";
-
-    char *result = ft_strnstr(haystack, needle, 30);
-
-    if (result != NULL)
-    {
-        printf("Needle found at position: %ld\n", result - haystack);
-    }
-    else
-    {
-        printf("Needle not found in the haystack.\n");
-    }
-
-    return 0;
-}
-====================================*/
