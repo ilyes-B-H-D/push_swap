@@ -1,4 +1,5 @@
 #include "../../push_swap.h"
+#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -7,6 +8,7 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (0);
 	else if (ac == 2)
@@ -15,7 +17,7 @@ int	main(int ac, char **av)
 	if (!ft_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
-			sa(&a, false);
+			sa(&a);
 		else if (ft_stack_len(a) == 3)
 			ft_sort_three(a);
 		else

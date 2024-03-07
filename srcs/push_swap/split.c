@@ -33,7 +33,7 @@ static char	*get_next_word(char *s, char c)
 
 	len = 0;
 	i = 0;
-	while (s[cursor] == c) //Skip past any consecutive delimiter characters at the current position in the string
+	while (s[cursor] == c) 
 		++cursor;
 	while ((s[cursor + len] != c) && s[cursor + len]) //Calculate the length of the substring by counting characters until either a delimiter or the end of the string is encountered
 		++len;

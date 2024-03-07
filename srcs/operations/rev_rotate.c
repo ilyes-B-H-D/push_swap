@@ -12,15 +12,16 @@
 
 #include "../../push_swap.h"
 
-void ft_rev_rotate(t_stack** stack) 
+void ft_rev_rotate(t_stack **stack)
 {
-    if (!(*stack) || !(*stack)->next) 
+    if (!(*stack) || !(*stack)->next)
         return;
 
     t_stack *prev = NULL;
     t_stack *current = *stack;
 
-    while (current->next) {
+    while (current->next)
+    {
         prev = current;
         current = current->next;
     }
@@ -28,26 +29,23 @@ void ft_rev_rotate(t_stack** stack)
     prev->next = NULL;
     current->next = *stack;
     *stack = current;
-}   
-
-void	rra(t_stack **a, bool print) 
-{
-	ft_rev_rotate(a);
-	if (!print)
-		ft_printf("rra\n");
 }
 
-void	rrb(t_stack **b, bool print) 
+void rra(t_stack **a)
 {
-	ft_rev_rotate(b);
-	if (!print)
-		ft_printf("rrb\n");
+    ft_rev_rotate(a);
+    ft_printf("rra\n");
 }
 
-void	rrr(t_stack **a, t_stack **b, bool print)
+void rrb(t_stack **b)
 {
-	ft_rev_rotate(a);
-	ft_rev_rotate(b);
-	if (!print)
-		ft_printf("rrr\n");
+    ft_rev_rotate(b);
+    ft_printf("rrb\n");
+}
+
+void rrr(t_stack **a, t_stack **b)
+{
+    ft_rev_rotate(a);
+    ft_rev_rotate(b);
+    ft_printf("rrr\n");
 }

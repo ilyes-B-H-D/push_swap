@@ -33,14 +33,14 @@ PRINTF = ft_printf/libftprintf.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra #-Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C libft
 	@make -C ft_printf
-	@$(CC) $(FLAGS) $(SRC) $(LIBFT) $(PRINTF) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(PRINTF) -o $(NAME)
 
 clean:
 	@make clean -C libft

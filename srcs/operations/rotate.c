@@ -30,24 +30,21 @@ void ft_rotate(t_stack** stack)
     last->next = first;
 }
 
-void	ra(t_stack **a, bool print) 
+void	ra(t_stack **a) 
 {
 	ft_rotate(a);
-	if (!print)
 		ft_printf("ra\n");
 }
 
-void	rb(t_stack **b, bool print) 
+void	rb(t_stack **b) 
 {
 	ft_rotate(b);
-	if (!print)
 		ft_printf("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b, bool print) 
+void	rr(t_stack **a, t_stack **b) 
 {
 	ft_rotate(a);
 	ft_rotate(b);
-	if (!print)
 		ft_printf("rr\n");
 }

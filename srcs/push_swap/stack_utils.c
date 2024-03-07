@@ -26,16 +26,7 @@
      return (len);
  }
 
-bool ft_check_sorted_stack(t_stack* stack) 
-{
-    while (stack && stack->next) 
-    {
-        if (stack->value > stack->next->value) 
-            return (false);
-        stack = stack->next;
-    }
-    return (true);
-}
+
 
  t_stack    *ft_find_last(t_stack *stack)
  {
@@ -46,9 +37,6 @@ bool ft_check_sorted_stack(t_stack* stack)
          last = last->next;
      return (last);
  }
-
-
-
 
  t_stack    *ft_find_min(t_stack *stack) 
  {
@@ -81,9 +69,7 @@ bool ft_check_sorted_stack(t_stack* stack)
 
  bool	ft_stack_sorted(t_stack *stack)
 {
-	if (!stack)
-		return (1);
-	while (stack->next)
+	while (stack && stack->next) 
 	{
 		if (stack->value > stack->next->value) 
 			return (false);
