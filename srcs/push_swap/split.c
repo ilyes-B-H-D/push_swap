@@ -35,42 +35,41 @@ static char	*get_next_word(char *s, char c)
 	i = 0;
 	while (s[cursor] == c) 
 		++cursor;
-	while ((s[cursor + len] != c) && s[cursor + len]) //Calculate the length of the substring by counting characters until either a delimiter or the end of the string is encountered
+	while ((s[cursor + len] != c) && s[cursor + len]) 
 		++len;
-	next_word = malloc((size_t)len * sizeof(char) + 1); //Allocate memory for new substring based on its length plus one byte for the null terminator
-	if (!next_word) //Check for unsuccessful memory allocation
+	next_word = malloc((size_t)len * sizeof(char) + 1); 
+	if (!next_word) 
 		return (NULL);
-	while ((s[cursor] != c) && s[cursor]) //Loop until a delimeter is encountered and the end of the string is reached
-		next_word[i++] = s[cursor++]; //Copy each character from the string to the new substring and increment `i` and `cursor` after each character
-	next_word[i] = '\0'; //Properly null terminate the newly created substring
-	return (next_word);
+	while ((s[cursor] != c) && s[cursor]) 
+		next_word[i++] = s[cursor++]; 
+	next_word[i] = '\0'; 
 }
 
-char **split(char *s, char c) //Define a function that returns the substrings in a string seperated by a delimiter
+char **split(char *s, char c)
 {
-	int		words_count; //Used to keep track of the number of substrings in the string
-	char	**result_array; //To store a pointer to pointers, the array of all the substrings
-	int		i; //Used to iterate through the array
+	int		words_count; 
+	char	**result_array;
+	int		i; 
 
 	i = 0;
 	words_count = count_words(s, c);
-	if (!words_count) //Check for `0` words
+	if (!words_count) 
 		exit(1);
-	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2)); //Allocate memory for the result_array based on the number of words (words_count) plus two additional slots to account for the null terminator at the end of the last string, and to null terminate the entire array
-	if (!result_array) //Check for unsuccessful memory allocation
+	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
+	if (!result_array) 
 		return (NULL);
-	while (words_count-- >= 0) //Iterates through the words to be split all words have been processed
+	while (words_count-- >= 0)
 	{
-		if (i == 0) //Check if the first character of the input string is the delimiter
+		if (i == 0) 
 		{
-			result_array[i] = malloc(sizeof(char)); //Allocate memory for an empty string (a single null terminator)
-			if (!result_array[i]) ////Check for unsuccessful memory allocation
+			result_array[i] = malloc(sizeof(char)); 
+			if (!result_array[i]) 
 				return (NULL);
-			result_array[i++][0] = '\0'; //Include in the result array as distinct elements
+			result_array[i++][0] = '\0'; 
 			continue ;
 		}
-		result_array[i++] = get_next_word(s, c); //If the first character of the string is not a delimeter, extract the substring and copy it into the result array
+		result_array[i++] = get_next_word(s, c); 
 	}
-	result_array[i] = NULL; //Properly null terminate the array
+	result_array[i] = NULL; 
 	return (result_array);
 }
