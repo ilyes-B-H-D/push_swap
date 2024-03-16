@@ -23,7 +23,6 @@ typedef struct s_stack
 int				ft_error_syntax(char *str); 
 int				ft_error_duplicate(t_stack *a, int n);
 void			ft_free_stack(t_stack **stack);
-void			ft_free_errors(t_stack **a);
 
 
 void ft_swap(t_stack** stack);

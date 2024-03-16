@@ -6,25 +6,25 @@
 #    By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/03 13:56:28 by iben-haj          #+#    #+#              #
-#    Updated: 2024/03/06 12:59:38 by benhajdahma      ###   ########.fr        #
+#    Updated: 2024/03/16 18:32:38 by benhajdahma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC =	./srcs/operations/push.c \
-		./srcs/operations/rotate.c \
-		./srcs/operations/rev_rotate.c \
-		./srcs/operations/sort_three.c \
-		./srcs/operations/swap.c \
-		./srcs/push_swap/handle_errors.c \
-		./srcs/push_swap/init_stack.c \
-		./srcs/push_swap/push_swap.c \
-		./srcs/push_swap/sort_stacks.c \
-		./srcs/push_swap/stack_utils.c \
-		./srcs/push_swap/split.c \
-		./srcs/push_swap/init_a_to_b.c \
-		./srcs/push_swap/init_b_to_a.c \
+SRC =	./push.c \
+		./rotate.c \
+		./rev_rotate.c \
+		./sort_three.c \
+		./swap.c \
+		./handle_errors.c \
+		./init_stack.c \
+		./push_swap.c \
+		./sort_stacks.c \
+		./stack_utils.c \
+		./split.c \
+		./push_a_to_b.c \
+		./push_b_to_a.c \
 
 OBJ = $(SRC:.c=.o)
 
