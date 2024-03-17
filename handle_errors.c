@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/16 22:35:16 by iben-haj          #+#    #+#             */
+/*   Updated: 2024/03/16 22:35:17 by iben-haj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 int	ft_error_syntax(char *str)
@@ -16,8 +28,8 @@ int	ft_error_duplicate(t_stack *a, int n)
 		return (0);
 	while (a->value != n && a->next)
 		a = a->next;
-    if (a->value == n)
-        return (1);
+	if (a->value == n)
+		return (1);
 	return (0);
 }
 

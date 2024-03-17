@@ -12,29 +12,30 @@
 
 #include "./push_swap.h"
 
-void ft_swap(t_stack **stack)
+void	ft_swap(t_stack **stack)
 {
-	if (!(*stack) || !(*stack)->next)
-		return;
+	int	temp;
 
-	int temp = (*stack)->value;
+	if (!(*stack) || !(*stack)->next)
+		return ;
+	temp = (*stack)->value;
 	(*stack)->value = (*stack)->next->value;
 	(*stack)->next->value = temp;
 }
 
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
 	ft_swap(a);
 	ft_printf("sa\n");
 }
 
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
 	ft_swap(b);
 	ft_printf("sb\n");
 }
 
-void ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	ft_swap(a);
 	ft_swap(b);

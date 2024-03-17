@@ -3,46 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:09:25 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/16 18:30:36 by benhajdahma      ###   ########.fr       */
+/*   Updated: 2024/03/16 23:42:59 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void ft_push(t_stack **dst, t_stack **src)
+void	ft_push(t_stack **dst, t_stack **src)
 {
-	t_stack *push_node;
+	t_stack	*push_node;
 
 	if (!*src)
-		return;
+		return ;
 	push_node = *src;
 	*src = (*src)->next;
-	if (*src)
-		(*src)->prev = NULL;
-	push_node->prev = NULL;
 	if (!*dst)
 	{
 		*dst = push_node;
-		push_node->next = NULL;
+		(*dst)->next = NULL;
 	}
 	else
 	{
 		push_node->next = *dst;
-		push_node->next->prev = push_node;
 		*dst = push_node;
 	}
 }
 
-void pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
 	ft_push(a, b);
 	ft_printf("pa\n");
 }
 
-void pb(t_stack **b, t_stack **a)
+void	pb(t_stack **b, t_stack **a)
 {
 	ft_push(b, a);
 	ft_printf("pb\n");

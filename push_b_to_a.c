@@ -1,11 +1,10 @@
 #include "./push_swap.h"
 
-
-void	ft_init_nodes_b(t_stack* a, t_stack* b)
+void	ft_init_nodes_b(t_stack *a, t_stack *b)
 {
-	t_stack* current_a;
-	t_stack* target_node;
-	long			best_match_index;
+	t_stack	*current_a;
+	t_stack	*target_node;
+	long	best_match_index;
 
 	ft_current_index(a);
 	ft_current_index(b);

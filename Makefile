@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+         #
+#    By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/03 13:56:28 by iben-haj          #+#    #+#              #
-#    Updated: 2024/03/16 18:32:38 by benhajdahma      ###   ########.fr        #
+#    Updated: 2024/03/17 00:08:56 by iben-haj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC =	./push.c \
 		./push_swap.c \
 		./sort_stacks.c \
 		./stack_utils.c \
-		./split.c \
+		./parse.c \
 		./push_a_to_b.c \
 		./push_b_to_a.c \
 

@@ -16,7 +16,6 @@ typedef struct s_stack
 	bool				cheapest; 
 	struct s_stack		*target_node;
 	struct s_stack		*next; 
-	struct s_stack		*prev;
 }	t_stack;
 
 // errors
@@ -34,7 +33,7 @@ t_stack    *ft_find_max(t_stack *stack);
 t_stack    *ft_find_last(t_stack *stack);
 int			ft_stack_len(t_stack *stack);
 void ft_rev_rotate(t_stack** stack);
-char **split(char *s, char c);
+char **parse(char *s);
 void	ft_init_stack_a(t_stack **a, char **av);
  bool	ft_stack_sorted(t_stack *stack);
 void	ft_current_index(t_stack *stack);
