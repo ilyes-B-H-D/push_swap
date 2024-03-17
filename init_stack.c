@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:19 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/16 23:55:54 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/17 03:55:20 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ long	ft_atol(const char *s)
 {
 	long	res;
 	int		sign;
+	int check=0;
 
 	res = 0;
 	sign = 1;
@@ -31,6 +32,12 @@ long	ft_atol(const char *s)
 	{
 		res = res * 10 + (*s - '0');
 		s++;
+		check=1;
+	}
+	if(!check)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
 	}
 	return (res * sign);
 }
@@ -101,14 +108,14 @@ void	ft_init_stack_a(t_stack **a, char **av)
 		if (ft_error_syntax(av[i]))
 		{
 			ft_free_stack(a);
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN || ft_error_duplicate(*a, (int)n))
 		{
 			ft_free_stack(a);
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		append_node(a, (int)n);

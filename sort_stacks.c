@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:02 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/17 00:06:41 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/17 05:19:00 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void	move_a_to_b(t_stack **a, t_stack **b)
 void	sort_stacks(t_stack **a, t_stack **b)
 {
 	int	len_a;
+	t_stack *tmp = *a;
 
 	len_a = ft_stack_len(*a);
 	if (len_a-- > 3 && !ft_stack_sorted(*a))
@@ -59,11 +60,23 @@ void	sort_stacks(t_stack **a, t_stack **b)
 		pa(a, b);
 	}
 	ft_current_index(*a);
-	while ((*a)->value != ft_find_min(*a)->value)
+	// printf("this is the len of a %d", ft_stack_len(tmp));
+	// print a
+	
+	// while ((tmp)->next )
+	// {
+	// 	printf("%d\n", tmp->value);
+	// 	tmp = tmp->next;
+	// }
+	
+	
+	while ((tmp)->next && (tmp)->value != ft_find_min(tmp)->value)
 	{
-		if (ft_find_min(*a)->above_median)
+		if (ft_find_min(tmp)->above_median)
 			ra(a);
 		else
 			rra(a);
+		ft_current_index(tmp);
+		(tmp) = (tmp)->next;
 	}
 }
