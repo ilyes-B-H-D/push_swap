@@ -1,6 +1,6 @@
 #include "./push_swap.h"
 
-t_stack	*ft_sort_three(t_stack *stack)
+void	ft_sort_three(t_stack *stack)
 {
 	int a = stack->value;
 	int b = stack->next->value;
@@ -20,5 +20,4 @@ t_stack	*ft_sort_three(t_stack *stack)
 		if (stack->value > stack->next->value)
 			sa(&stack);
 	}
-	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:16 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/16 22:35:17 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/17 07:18:32 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_error_duplicate(t_stack *a, int n)
 {
 	if (!a)
 		return (0);
-	while (a->value != n && a->next)
+	while (a->next && a->value != n)
 		a = a->next;
 	if (a->value == n)
 		return (1);

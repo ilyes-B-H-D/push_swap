@@ -55,7 +55,7 @@ void	pb(t_stack **b, t_stack **a);
 void	pa(t_stack **a, t_stack **b);
 
 // sort algo
-t_stack* 		ft_sort_three(t_stack* stack);
+void			ft_sort_three(t_stack* stack);
 void			sort_stacks(t_stack **a, t_stack **b); //Turk algorithm
 
 
