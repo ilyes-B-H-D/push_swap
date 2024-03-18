@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:02 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/17 07:15:24 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/18 01:10:43 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,25 @@ void	sort_stacks(t_stack **a, t_stack **b)
 		pb(b, a);
 	if (len_a-- > 3 && !ft_stack_sorted(*a))
 		pb(b, a);
+
+
 	while (len_a-- > 3 && !ft_stack_sorted(*a))
 	{
 		ft_init_nodes_a(*a, *b);
 		move_a_to_b(a, b);
 	}
 
-	ft_sort_three(*a);
+	if (!ft_stack_sorted(*a))
+		ft_sort_three(a);
 
+	// t_stack *tmp = *a;
+	// while((tmp))
+	// {
+	// 	printf("%d\n", (tmp)->value);
+	// 	(tmp) = (tmp)->next;
+	// }
+	
+	
 	while (*b)
 	{
 		ft_init_nodes_b(*a, *b);
@@ -62,13 +73,31 @@ void	sort_stacks(t_stack **a, t_stack **b)
 	}
 	ft_current_index(*a);
 	
-	while ((*a)->next && (*a)->value != ft_find_min(*a)->value)
+	// t_stack *tmp = *a;
+	// while((tmp))
+	// {
+	// 	printf("%d\n", (tmp)->value);
+	// 	(tmp) = (tmp)->next;
+	// }
+	// int i = 0;////////////
+				// printf("len ==> %d\n", ft_stack_len(*a));
+
+	
+	while ( (*a)->value != ft_find_min(*a)->value)
 	{
 		if (ft_find_min(*a)->above_median)
 			ra(a);
 		else
 			rra(a);
 		ft_current_index(*a);
-		(*a) = (*a)->next;
+		// (*a) = (*a)->next;
+			
+			// while((tmp))
+			// {
+				// printf("len ==> %d\n", ft_stack_len(*a));
+			// 	(tmp) = (tmp)->next;
+			// }
+	// 		i++;
 	}
+	
 }

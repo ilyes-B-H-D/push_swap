@@ -16,8 +16,9 @@ void	ft_current_index(t_stack *stack)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
+		// printf("stack->above_median == %d |||| stack->index == %d | i = %d ||| stack value== %d\n", stack->above_median, stack->index, i, stack->value);
 		stack = stack->next;
-		++i;
+		i++;
 	}
 }
 

@@ -20,12 +20,14 @@ void	ft_init_nodes_b(t_stack *a, t_stack *b)
 				best_match_index = current_a->value;
 				target_node = current_a;
 			}
+			// printf("val %d\n", current_a->value);
 			current_a = current_a->next;
 		}
 		if (best_match_index == LONG_MAX)
 			b->target_node = ft_find_min(a);
 		else
 			b->target_node = target_node;
+		// printf("node %d, targe :%d\n",b->value, target_node->value);
 		b = b->next;
 	}
 }
