@@ -13,19 +13,18 @@ void	ft_current_index(t_stack *stack)
 	{
 		stack->index = i;
 		if (i <= median)
-			stack->above_median = true;
+			stack->above_med = true;
 		else
-			stack->above_median = false;
-		// printf("stack->above_median == %d |||| stack->index == %d | i = %d ||| stack value== %d\n", stack->above_median, stack->index, i, stack->value);
+			stack->above_med = false;
 		stack = stack->next;
 		i++;
 	}
 }
 
-static void	set_target_a(t_stack *a, t_stack *b)
+static void	set_target(t_stack *a, t_stack *b)
 {
 	t_stack	*current_b;
-	t_stack	*target_node;
+	t_stack	*target;
 	long	best_match;
 
 	while (a)
@@ -34,22 +33,22 @@ static void	set_target_a(t_stack *a, t_stack *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->value < a->value && current_b->value > best_match)
+			if (current_b->val < a->val && current_b->val > best_match)
 			{
-				best_match = current_b->value;
-				target_node = current_b;
+				best_match = current_b->val;
+				target = current_b;
 			}
 			current_b = current_b->next;
 		}
 		if (best_match == LONG_MIN)
-			a->target_node = ft_find_max(b);
+			a->target = ft_find_max(b);
 		else
-			a->target_node = target_node;
+			a->target = target;
 		a = a->next;
 	}
 }
 
-static void	cost_analysis_a(t_stack *a, t_stack *b)
+static void	cost_analysis(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
@@ -59,12 +58,12 @@ static void	cost_analysis_a(t_stack *a, t_stack *b)
 	while (a)
 	{
 		a->push_cost = a->index;
-		if (!(a->above_median))
+		if (!(a->above_med))
 			a->push_cost = len_a - (a->index);
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
+		if (a->target->above_med)
+			a->push_cost += a->target->index;
 		else
-			a->push_cost += len_b - (a->target_node->index);
+			a->push_cost += len_b - (a->target->index);
 		a = a->next;
 	}
 }
@@ -89,11 +88,11 @@ void	set_cheapest(t_stack *stack)
 	cheapest_node->cheapest = true;
 }
 
-void	ft_init_nodes_a(t_stack *a, t_stack *b)
+void	ft_init_nodes(t_stack *a, t_stack *b)
 {
 	ft_current_index(a);
 	ft_current_index(b);
-	set_target_a(a, b);
-	cost_analysis_a(a, b);
+	set_target(a, b);
+	cost_analysis(a, b);
 	set_cheapest(a);
 }

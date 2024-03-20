@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:55:32 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/16 18:30:36 by benhajdahma      ###   ########.fr       */
+/*   Updated: 2024/03/20 09:39:36 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_swap(t_stack **stack)
 
 	if (!(*stack) || !(*stack)->next)
 		return ;
-	temp = (*stack)->value;
-	(*stack)->value = (*stack)->next->value;
-	(*stack)->next->value = temp;
+	temp = (*stack)->val;
+	(*stack)->val = (*stack)->next->val;
+	(*stack)->next->val = temp;
 }
 
 void	sa(t_stack **a)

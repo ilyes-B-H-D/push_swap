@@ -9,12 +9,12 @@
 
 typedef struct s_stack
 {
-	int					value;
+	int					val;
 	int					index;
 	int					push_cost; 
-	bool				above_median; 
+	bool				above_med; 
 	bool				cheapest; 
-	struct s_stack		*target_node;
+	struct s_stack		*target;
 	struct s_stack		*next; 
 }	t_stack;
 
@@ -34,12 +34,12 @@ t_stack    *ft_find_last(t_stack *stack);
 int			ft_stack_len(t_stack *stack);
 void ft_rev_rotate(t_stack** stack);
 char **parse(char *s);
-void	ft_init_stack_a(t_stack **a, char **av);
+void	ft_init_stack(t_stack **a, char **av);
  bool	ft_stack_sorted(t_stack *stack);
 void	ft_current_index(t_stack *stack);
 t_stack	*ft_get_cheapest(t_stack *stack);
 void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
-void	ft_init_nodes_a(t_stack *a, t_stack *b);
+void	ft_init_nodes(t_stack *a, t_stack *b);
 void	ft_init_nodes_b(t_stack *a, t_stack *b);
 // Operations
 void	sa(t_stack	**a);

@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:19 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/17 03:55:20 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/20 09:39:36 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	append_node(t_stack **stack, int n)
 	if (!node)
 		return ;
 	node->next = NULL;
-	node->value = n;
+	node->val = n;
 	if (!(*stack))
 		*stack = node;
 	else
@@ -78,18 +78,19 @@ t_stack	*ft_get_cheapest(t_stack *stack)
 
 void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
+	// i must add rr and rrr here
 	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median)
+			if (top_node->above_med)
 				ra(stack);
 			else
 				rra(stack);
 		}
 		else if (stack_name == 'b')
 		{
-			if (top_node->above_median)
+			if (top_node->above_med)
 				rb(stack);
 			else
 				rrb(stack);
@@ -97,7 +98,7 @@ void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 	}
 }
 
-void	ft_init_stack_a(t_stack **a, char **av)
+void	ft_init_stack(t_stack **a, char **av)
 {
 	long	n;
 	int		i;

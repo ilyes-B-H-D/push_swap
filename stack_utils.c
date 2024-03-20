@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:13:57 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/16 18:30:36 by benhajdahma      ###   ########.fr       */
+/*   Updated: 2024/03/20 09:39:36 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_stack	*ft_find_min(t_stack *stack)
 	min = stack;
 	while (stack)
 	{
-		if (stack->value < min->value)
+		if (stack->val < min->val)
 			min = stack;
 		stack = stack->next;
 	}
@@ -42,7 +42,7 @@ t_stack	*ft_find_max(t_stack *stack)
 	max = stack;
 	while (stack)
 	{
-		if (stack->value > max->value)
+		if (stack->val > max->val)
 			max = stack;
 		stack = stack->next;
 	}
@@ -53,7 +53,7 @@ bool	ft_stack_sorted(t_stack *stack)
 {
 	while (stack && stack->next)
 	{
-		if (stack->value > stack->next->value)
+		if (stack->val > stack->next->val)
 			return (false);
 		stack = stack->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:16 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/17 07:18:32 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/20 09:39:36 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_error_duplicate(t_stack *a, int n)
 {
 	if (!a)
 		return (0);
-	while (a->next && a->value != n)
+	while (a->next && a->val != n)
 		a = a->next;
-	if (a->value == n)
+	if (a->val == n)
 		return (1);
 	return (0);
 }
@@ -44,7 +44,7 @@ void	ft_free_stack(t_stack **stack)
 	while (current)
 	{
 		tmp = current->next;
-		current->value = 0;
+		current->val = 0;
 		free(current);
 		current = tmp;
 	}

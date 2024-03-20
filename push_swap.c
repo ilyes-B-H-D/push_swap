@@ -12,9 +12,8 @@ int	main(int ac, char **av)
 		return (0);
 	else if (ac == 2)
 		av = parse(av[1]);
-	ft_init_stack_a(&a, av + 1);
+	ft_init_stack(&a, av + 1);
 	
-
 	if (!ft_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
@@ -24,14 +23,6 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-
-	// t_stack *tmp = a;
-	// while((tmp))
-	// {
-	// 	printf("%d\n", (tmp)->value);
-	// 	(tmp) = (tmp)->next;
-	// }
-
 	ft_free_stack(&a);
 	return (0);
 }
