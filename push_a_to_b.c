@@ -50,20 +50,44 @@ static void	set_target(t_stack *a, t_stack *b)
 
 static void	cost_analysis(t_stack *a, t_stack *b)
 {
-	int	len_a;
-	int	len_b;
+	int	lena;
+	int	lenb;
 
-	len_a = ft_stack_len(a);
-	len_b = ft_stack_len(b);
+	lena = ft_stack_len(a);
+	lenb = ft_stack_len(b);
 	while (a)
 	{
-		a->push_cost = a->index;
-		if (!(a->above_med))
-			a->push_cost = len_a - (a->index);
-		if (a->target->above_med)
-			a->push_cost += a->target->index;
+		if (a->above_med && a->target->above_med)
+			a->push_cost = a->index + abs(a->index - a->target->index);
+		else if (!a->above_med && !a->target->above_med)
+		{
+			// printf("========> this is the val %d and this is the target
+				// %d\n",
+			// 	a->val, a->target->val);
+			a->push_cost = lena - a->index + abs(lena - a->index - (lenb
+						- a->target->index));
+			// printf("push cost %d\n", abs(lena - a->index - (lenb
+			// - a->target->index)));
+		}
 		else
-			a->push_cost += len_b - (a->target->index);
+		{
+			a->push_cost = a->index;
+			if (!(a->above_med))
+				a->push_cost = lena - (a->index);
+			if (a->target->above_med)
+				a->push_cost += a->target->index;
+			else
+				a->push_cost += lenb - (a->target->index);
+		}
+		// printf("val %d : index %d | target val %d : index %d | cost %d\n ",
+		// 	a->val, a->index, a->target->val, a->target->index, a->push_cost);
+		// a->push_cost = a->index;
+		// if (!(a->above_med))
+		// 	a->push_cost = lena - (a->index);
+		// if (a->target->above_med)
+		// 	a->push_cost += a->target->index;
+		// else
+		// 	a->push_cost += lenb - (a->target->index);
 		a = a->next;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:02 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/20 11:02:15 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:23:32 by benhajdahma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ static void	move_a_to_b(t_stack **a, t_stack **b)
 	t_stack	*cheapest;
 
 	cheapest = ft_get_cheapest(*a);
-	// printf("this is the cheapest %d || target value %d\n", cheapest->val, cheapest->target->val);
+	// if (cheapest->val == 3)
+	// {
+	// 	cheapest = ft_find_last(*a);
+	// 	cheapest->target = ft_find_last(*b);
+	// }
+	// printf("this is the cheapest %d || target value %d\n", cheapest->val,
+	// cheapest->target->val);
 	if (cheapest->above_med && cheapest->target->above_med)
 		while (*b != cheapest->target && *a != cheapest)
 			rr(a, b);
@@ -41,6 +47,13 @@ void	sort_stacks(t_stack **a, t_stack **b)
 	while (len-- > 3 && !ft_stack_sorted(*a))
 	{
 		ft_init_nodes(*a, *b);
+		// t_stack	*tmp;
+		// tmp = *a;
+		// while (tmp)
+		// {
+		// 	printf("a stack => %d\n", tmp->val);
+		// 	tmp = tmp->next;
+		// }
 		move_a_to_b(a, b);
 	}
 	ft_sort_three(a);
