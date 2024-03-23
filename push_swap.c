@@ -10,10 +10,7 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (0);
-	else if (ac == 2)
-		av = parse(av[1]);
 	ft_init_stack(&a, av + 1);
-	
 	if (!ft_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
@@ -24,5 +21,6 @@ int	main(int ac, char **av)
 			sort_stacks(&a, &b);
 	}
 	ft_free_stack(&a);
+	// printf("%d %s\n", ac, *av);
 	return (0);
 }

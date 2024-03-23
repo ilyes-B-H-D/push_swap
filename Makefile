@@ -1,16 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/03 13:56:28 by iben-haj          #+#    #+#              #
-#    Updated: 2024/03/17 00:08:56 by iben-haj         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = push_swap
+NAME_B = checker
 
 SRC =	./push.c \
 		./rotate.c \
@@ -22,36 +11,45 @@ SRC =	./push.c \
 		./push_swap.c \
 		./sort_stacks.c \
 		./stack_utils.c \
-		./parse.c \
 		./push_a_to_b.c \
-		./push_b_to_a.c \
+		./push_b_to_a.c
 
+SRC_B =	$(SRC) \
+		./get_next_line/get_next_line.c \
+		./get_next_line/get_next_line_utils.c \
+		./checker.c
+		
 OBJ = $(SRC:.c=.o)
+BOBJ = $(SRC_B:.c=.o)
 
 LIBFT = libft/libft.a
 PRINTF = ft_printf/libftprintf.a
-
 CC = gcc
-
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+bonus: $(NAME_B)
 
 $(NAME): $(OBJ)
 	@make -C libft
 	@make -C ft_printf
-	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(PRINTF) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
+
+$(NAME_B): $(BOBJ)
+	@make -C libft
+	@make -C ft_printf
+	$(CC) $(CFLAGS) $(BOBJ) $(LIBFT) $(PRINTF) -o $(NAME_B)
 
 clean:
 	@make clean -C libft
 	@make clean -C ft_printf
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(BOBJ)
 
 fclean: clean
 	@make fclean -C libft
 	@make fclean -C ft_printf
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(NAME_B)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

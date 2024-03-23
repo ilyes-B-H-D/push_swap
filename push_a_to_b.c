@@ -69,7 +69,7 @@ static void	cost_analysis(t_stack *a, t_stack *b)
 			// printf("push cost %d\n", abs(lena - a->index - (lenb
 			// - a->target->index)));
 		}
-		else
+		else	
 		{
 			a->push_cost = a->index;
 			if (!(a->above_med))

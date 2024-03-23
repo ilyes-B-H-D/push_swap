@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:19 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/20 09:39:36 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/22 05:55:09 by benhajdahma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ long	ft_atol(const char *s)
 {
 	long	res;
 	int		sign;
-	int check=0;
+	int		check;
 
+	check = 0;
 	res = 0;
 	sign = 1;
 	while ((*s >= 9 && *s <= 13) || *s == 32)
@@ -32,9 +33,9 @@ long	ft_atol(const char *s)
 	{
 		res = res * 10 + (*s - '0');
 		s++;
-		check=1;
+		check = 1;
 	}
-	if(!check)
+	if (!check)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
@@ -97,22 +98,44 @@ void	ft_prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 		}
 	}
 }
-
-void	ft_init_stack(t_stack **a, char **av)
+int	ft_search(char *av, char *c)
 {
-	long	n;
-	int		i;
+	int	i;
 
 	i = 0;
-	while (av[i])
+	while (*av)
 	{
-		if (ft_error_syntax(av[i]))
+		while (c[i])
 		{
-			ft_free_stack(a);
-			write(2, "Error\n", 6);
-			exit(1);
+			if (*av == c[i])
+				return (1);
+			i++;
 		}
-		n = ft_atol(av[i]);
+		i = 0;
+		av++;
+	}
+	return (0);
+}
+
+void	ft_handle(t_stack **a, char *arg)
+{
+	char	**newrs;
+	int		i;
+	int		n;
+
+	i = 0;
+	if (ft_search(arg, " "))
+	{
+		newrs = ft_split(arg, ' ');
+		while (newrs[i])
+		{
+			ft_handle(a, newrs[i]);
+			i++;
+		}
+	}
+	else
+	{
+		n = ft_atol(arg);
 		if (n > INT_MAX || n < INT_MIN || ft_error_duplicate(*a, (int)n))
 		{
 			ft_free_stack(a);
@@ -120,6 +143,44 @@ void	ft_init_stack(t_stack **a, char **av)
 			exit(1);
 		}
 		append_node(a, (int)n);
+	}
+}
+void	ft_init_stack(t_stack **a, char **av)
+{
+	int	i;
+
+	// char	**s;
+	// long	n;
+	i = 0;
+	while (av[i])
+	{
+		if (!ft_search(av[i], "0123456789"))
+		{
+			ft_free_stack(a);
+			write(2, "Error\n", 6);
+			exit(1);
+		}
+		ft_handle(a, av[i]);
+		// if (ft_error_syntax(av[i]))
+		// {
+		// 	ft_free_stack(a);
+		// 	write(2, "Error\n", 6);
+		// 	exit(1);
+		// }
+		// n = ft_atol(av[i]);
+		// if (n > INT_MAX || n < INT_MIN || ft_error_duplicate(*a, (int)n))
+		// {
+		// 	ft_free_stack(a);
+		// 	write(2, "Error\n", 6);
+		// 	exit(1);
+		// }
+		// append_node(a, (int)n);
 		i++;
 	}
+	// printf("%d\n", (*a)->val);
+	// while(a)
+	// {
+	// 	printf("%d\n", (*a)->val);
+	// 	(*a) = (*a)->next;
+	// }
 }

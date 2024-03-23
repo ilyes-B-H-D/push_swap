@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:16 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/20 09:39:36 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/22 05:04:01 by benhajdahma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	ft_error_syntax(char *str)
 {
-	if (!(*str == '+' || *str == '-' || ft_isdigit(*str)))
+	if (!(*str == '+' || *str == '-' || ft_isdigit(*str) || *str == ' '
+			|| (*str >= 9 && *str <= 13)))
 		return (1);
 	while (*++str)
-		if (!ft_isdigit(*str))
+		if (!ft_isdigit(*str) && !(*str == ' ' || (*str >= 9 && *str <= 13)))
 			return (1);
 	return (0);
 }
