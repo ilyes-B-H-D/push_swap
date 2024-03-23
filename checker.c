@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:09 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 14:40:18 by benhajdahma      ###   ########.fr       */
+/*   Updated: 2024/03/23 15:22:16 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,70 +15,39 @@
 
 int	execute(char *line, t_stack **stack_a, t_stack **stack_b)
 {
-	if (!(ft_strncmp(line, "sa", 2)))
-	{
+	if (!ft_strncmp(line, "sa", 2))
 		sa(stack_a);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "sb", 2)))
-	{
+	else if (!ft_strncmp(line, "sb", 2))
 		sb(stack_b);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "ss", 2)))
-	{
+	else if (!ft_strncmp(line, "ss", 2))
 		ss(stack_a, stack_b);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "pa", 2)))
-	{
+	else if (!ft_strncmp(line, "pa", 2))
 		pa(stack_a, stack_b);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "pb", 2)))
-	{
+	else if (!ft_strncmp(line, "pb", 2))
 		pb(stack_b, stack_a);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "ra", 2)))
-	{
+	else if (!ft_strncmp(line, "ra", 2))
 		ra(stack_a);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "rb", 2)))
-	{
+	else if (!ft_strncmp(line, "rb", 2))
 		rb(stack_b);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "rr", 2)))
-	{
+	else if (!ft_strncmp(line, "rr", 2))
 		rr(stack_a, stack_a);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "rra", 2)))
-	{
+	else if (!ft_strncmp(line, "rra", 2))
 		rra(stack_a);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "rrb", 2)))
-	{
+	else if (!ft_strncmp(line, "rrb", 2))
 		rrb(stack_b);
-		return (0);
-	}
-	if (!(ft_strncmp(line, "rrr", 2)))
-	{
+	else if (!ft_strncmp(line, "rrr", 2))
 		rrr(stack_a, stack_b);
-		return (0);
-	}
-	return (1);
+	else
+		return (1);
+	return (0);
 }
 
 void	print_checker_res(t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_stack_sorted(*stack_a))
-		ft_putendl_fd("OK\n", 1);
+		ft_putendl_fd("OK", 1);
 	else
-		ft_putendl_fd("KO\n", 1);
+		ft_putendl_fd("KO", 1);
 	if (*stack_a)
 		ft_free_stack(stack_a);
 	if (*stack_b)
@@ -101,7 +70,7 @@ int	main(int ac, char **av)
 	{
 		if (execute(*line, &a, &b))
 		{
-			// ft_error("Error");
+			write(2, "Error\n", 6);
 			return (-1);
 		}
 		free(line);

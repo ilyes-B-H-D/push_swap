@@ -3,35 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: benhajdahmaneilyes <benhajdahmaneilyes@    +#+  +:+       +#+        */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:02 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/21 22:23:32 by benhajdahma      ###   ########.fr       */
+/*   Updated: 2024/03/23 18:31:59 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static void	move_a_to_b(t_stack **a, t_stack **b)
+static void	move_to_b(t_stack **a, t_stack **b)
 {
 	t_stack	*cheapest;
 
-	cheapest = ft_get_cheapest(*a);
-	// if (cheapest->val == 3)
-	// {
-	// 	cheapest = ft_find_last(*a);
-	// 	cheapest->target = ft_find_last(*b);
-	// }
-	// printf("this is the cheapest %d || target value %d\n", cheapest->val,
-	// cheapest->target->val);
-	if (cheapest->above_med && cheapest->target->above_med)
-		while (*b != cheapest->target && *a != cheapest)
+	cheapest = get_cheapest(*a);
+	if (cheapest->above_med && cheapest->trg->above_med)
+		while (*b != cheapest->trg && *a != cheapest)
 			rr(a, b);
-	else if (!(cheapest->above_med) && !(cheapest->target->above_med))
-		while (*b != cheapest->target && *a != cheapest)
+	else if (!(cheapest->above_med) && !(cheapest->trg->above_med))
+		while (*b != cheapest->trg && *a != cheapest)
 			rrr(a, b);
-	ft_prep_for_push(a, cheapest, 'a');
-	ft_prep_for_push(b, cheapest->target, 'b');
+	prep_for_push(a, cheapest, 'a');
+	prep_for_push(b, cheapest->trg, 'b');
 	pb(b, a);
 }
 
@@ -46,21 +39,16 @@ void	sort_stacks(t_stack **a, t_stack **b)
 		pb(b, a);
 	while (len-- > 3 && !ft_stack_sorted(*a))
 	{
-		ft_init_nodes(*a, *b);
-		// t_stack	*tmp;
-		// tmp = *a;
-		// while (tmp)
-		// {
-		// 	printf("a stack => %d\n", tmp->val);
-		// 	tmp = tmp->next;
-		// }
-		move_a_to_b(a, b);
+		set_target(*a, *b);
+		cost(*a, *b);
+		set_cheapest(*a);
+		move_to_b(a, b);
 	}
 	ft_sort_three(a);
 	while (*b)
 	{
-		ft_init_nodes_b(*a, *b);
-		ft_prep_for_push(a, (*b)->target, 'a');
+		ft_init_b(*a, *b);
+		prep_for_push(a, (*b)->trg, 'a');
 		pa(a, b);
 	}
 	ft_current_index(*a);

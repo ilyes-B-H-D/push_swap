@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 18:04:09 by iben-haj          #+#    #+#             */
+/*   Updated: 2024/03/23 18:04:10 by iben-haj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 #include <stdio.h>
 
@@ -20,7 +32,9 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	ft_free_stack(&a);
-	// printf("%d %s\n", ac, *av);
+	if (a)
+		ft_free_stack(&a);
+	if (b)
+		ft_free_stack(&b);
 	return (0);
 }

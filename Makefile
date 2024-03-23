@@ -10,11 +10,23 @@ SRC =	./push.c \
 		./init_stack.c \
 		./push_swap.c \
 		./sort_stacks.c \
-		./stack_utils.c \
-		./push_a_to_b.c \
-		./push_b_to_a.c
+		./utils.c \
+		./helpers.c \
+		./push_to_a.c \
+		./utils1.c 
 
-SRC_B =	$(SRC) \
+SRC_B = ./push.c \
+		./rotate.c \
+		./rev_rotate.c \
+		./sort_three.c \
+		./swap.c \
+		./handle_errors.c \
+		./init_stack.c \
+		./sort_stacks.c \
+		./utils.c \
+		./helpers.c \
+		./push_to_a.c \
+		./utils1.c \
 		./get_next_line/get_next_line.c \
 		./get_next_line/get_next_line_utils.c \
 		./checker.c

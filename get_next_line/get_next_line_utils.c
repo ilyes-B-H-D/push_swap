@@ -1,108 +1,83 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 14:54:57 by iben-haj          #+#    #+#             */
+/*   Updated: 2024/03/23 15:01:59 by iben-haj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
 
-int	found_newline(a_list *list)
+char	*ft_strdup(const char *s)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	*str;
 
-	if (NULL == list)
-		return (0);
-	while (list)
-	{
-		i = 0;
-		while (list->val[i] && i < BUFFER_SIZE)
-		{
-			if (list->val[i] == '\n')
-				return (1);
-			++i;
-		}
-		printf("%s", list->val);
-		list = list->next;
-	}
-	return (0);
-}
-
-a_list	*find_last_node(a_list *list)
-{
-	if (NULL == list)
+	i = 0;
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (j + 1));
+	if (!str)
 		return (NULL);
-	while (list->next)
-		list = list->next;
-	return (list);
-}
-
-void	copy_str(a_list *list, char *str)
-{
-	int	i;
-	int	k;
-
-	if (NULL == list)
-		return ;
-	k = 0;
-	while (list)
+	while (i < j)
 	{
-		i = 0;
-		while (list->val[i])
-		{
-			if (list->val[i] == '\n')
-			{
-				str[k++] = '\n';
-				str[k] = '\0';
-				return ;
-			}
-			str[k++] = list->val[i++];
-		}
-		list = list->next;
+		str[i] = s[i];
+		i++;
 	}
-	str[k] = '\0';
+	str[i] = '\0';
+	return (str);
 }
 
-int	len_to_newline(a_list *list)
+char	*ft_strchr(const char *string, int searchedChar )
 {
-	int	i;
-	int	len;
+	char	*str;
 
-	if (NULL == list)
-		return (0);
-	len = 0;
-	while (list)
-	{
-		i = 0;
-		while (list->val[i])
-		{
-			if (list->val[i] == '\n')
-			{
-				++len;
-				return (len);
-			}
-			++i;
-			++len;
-		}
-		list = list->next;
-	}	
-	return (len);
-}
-
-void	dealloc(a_list **list, a_list *clean_node, char *buf)
-{	
-	a_list	*tmp;
-
-	if (NULL == *list)
-		return ;
-	while (*list)
-	{
-		tmp = (*list)->next;
-		free((*list)->val);
-		free(*list);
-		*list = tmp;
-	}
-	*list = NULL;
-	if (clean_node->val[0])
-		*list = clean_node;
+	str = (char *)string;
+	while (*str != searchedChar && *str != 0)
+		str++;
+	if (*str == searchedChar)
+		return (str);
 	else
+		return (NULL);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
 	{
-		free(buf);
-		free(clean_node);
+		str[i] = '\0';
+		i++;
 	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	if (size != 0 && count > 0xffffffff / size)
+		return (NULL);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}
+
+size_t	ft_strlen(const char *theString)
+{
+	int	i;
+
+	i = 0;
+	while (theString[i])
+		i++;
+	return (i);
 }

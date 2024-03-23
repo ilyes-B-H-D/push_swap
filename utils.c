@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -21,6 +21,7 @@ t_stack	*ft_find_last(t_stack *stack)
 		last = last->next;
 	return (last);
 }
+
 t_stack	*ft_find_min(t_stack *stack)
 {
 	t_stack	*min;
@@ -62,7 +63,7 @@ bool	ft_stack_sorted(t_stack *stack)
 
 int	ft_stack_len(t_stack *stack)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (stack)
