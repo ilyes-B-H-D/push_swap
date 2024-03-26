@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:04:09 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:04:10 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:48:03 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (0);
+	{
+			write(2, "Error\n", 6);
+			exit(1);
+	}
 	ft_init_stack(&a, av + 1);
 	if (!ft_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
-			sa(&a);
+			sa(&a, 1);
 		else if (ft_stack_len(a) == 3)
 			ft_sort_three(&a);
 		else

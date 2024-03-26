@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:02 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:31:59 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:43:00 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static void	move_to_b(t_stack **a, t_stack **b)
 	cheapest = get_cheapest(*a);
 	if (cheapest->above_med && cheapest->trg->above_med)
 		while (*b != cheapest->trg && *a != cheapest)
-			rr(a, b);
+			rr(a, b, 1);
 	else if (!(cheapest->above_med) && !(cheapest->trg->above_med))
 		while (*b != cheapest->trg && *a != cheapest)
-			rrr(a, b);
+			rrr(a, b, 1);
 	prep_for_push(a, cheapest, 'a');
 	prep_for_push(b, cheapest->trg, 'b');
-	pb(b, a);
+	pb(b, a, 1);
 }
 
 void	sort_stacks(t_stack **a, t_stack **b)
@@ -34,9 +34,9 @@ void	sort_stacks(t_stack **a, t_stack **b)
 
 	len = ft_stack_len(*a);
 	if (len-- > 3 && !ft_stack_sorted(*a))
-		pb(b, a);
+		pb(b, a, 1);
 	if (len-- > 3 && !ft_stack_sorted(*a))
-		pb(b, a);
+		pb(b, a, 1);
 	while (len-- > 3 && !ft_stack_sorted(*a))
 	{
 		set_target(*a, *b);
@@ -49,15 +49,15 @@ void	sort_stacks(t_stack **a, t_stack **b)
 	{
 		ft_init_b(*a, *b);
 		prep_for_push(a, (*b)->trg, 'a');
-		pa(a, b);
+		pa(a, b, 1);
 	}
 	ft_current_index(*a);
 	while ((*a)->val != ft_find_min(*a)->val)
 	{
 		if (ft_find_min(*a)->above_med)
-			ra(a);
+			ra(a, 1);
 		else
-			rra(a);
+			rra(a, 1);
 		ft_current_index(*a);
 	}
 }

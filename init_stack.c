@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:19 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:21:36 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:49:52 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 		if (stack_name == 'a')
 		{
 			if (top_node->above_med)
-				ra(stack);
+				ra(stack, 1);
 			else
-				rra(stack);
+				rra(stack, 1);
 		}
 		else if (stack_name == 'b')
 		{
 			if (top_node->above_med)
-				rb(stack);
+				rb(stack, 1);
 			else
-				rrb(stack);
+				rrb(stack, 1);
 		}
 	}
 }

@@ -6,34 +6,34 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:17:16 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:37:29 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:54:01 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-long	ft_atol(const char *s)
+long	ft_atol(const char *str)
 {
-	long	res;
-	int		sign;
-	int		check;
+	int			i;
+	int			sign;
+	long long	res;
 
-	check = 0;
-	res = 0;
+	i = 0;
 	sign = 1;
-	while ((*s >= 9 && *s <= 13) || *s == 32)
-		s++;
-	if (*s == '-')
-		sign = -1;
-	if (*s == '-' || *s == '+')
-		s++;
-	while (*s >= '0' && *s <= '9')
+	res = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		res = res * 10 + (*s - '0');
-		s++;
-		check = 1;
+		if (str[i++] == '-')
+			sign *= -1;
 	}
-	if (!check)
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (str[i] - '0') + (res * 10);
+		i++;
+	}
+	if (str[i] != '\0')
 	{
 		write(2, "Error\n", 6);
 		exit(1);

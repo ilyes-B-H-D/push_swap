@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:55:32 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:11:36 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:39:56 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ void	ft_swap(t_stack **stack)
 	(*stack)->next->val = temp;
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int print)
 {
 	ft_swap(a);
-	ft_printf("sa\n");
+	if (print)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int print)
 {
 	ft_swap(b);
-	ft_printf("sb\n");
+	if (print)
+		ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int print)
 {
 	ft_swap(a);
 	ft_swap(b);
-	ft_printf("ss\n");
+	if (print)
+		ft_printf("ss\n");
 }

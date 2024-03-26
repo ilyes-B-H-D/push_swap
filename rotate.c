@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:55:15 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:13:20 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:40:10 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,24 @@ void	ft_rotate(t_stack **stack)
 	last->next = first;
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int print)
 {
 	ft_rotate(a);
-	ft_printf("ra\n");
+	if (print)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int print)
 {
 	ft_rotate(b);
-	ft_printf("rb\n");
+	if (print)
+		ft_printf("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int print)
 {
 	ft_rotate(a);
 	ft_rotate(b);
-	ft_printf("rr\n");
+	if (print)
+		ft_printf("rr\n");
 }

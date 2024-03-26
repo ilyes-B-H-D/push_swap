@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:04:12 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/23 18:17:41 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/26 19:39:30 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ t_stack				*get_cheapest(t_stack *stack);
 void				prep_for_push(t_stack **a, t_stack *top_node,
 						char stack_name);
 void				ft_init_b(t_stack *a, t_stack *b);
-void				sa(t_stack **a);
-void				sb(t_stack **b);
-void				ss(t_stack **a, t_stack **b);
-void				ra(t_stack **a);
-void				rb(t_stack **b);
-void				rr(t_stack **a, t_stack **b);
-void				rra(t_stack **a);
-void				rrb(t_stack **b);
-void				rrr(t_stack **a, t_stack **b);
-void				pb(t_stack **b, t_stack **a);
-void				pa(t_stack **a, t_stack **b);
+void				sa(t_stack **a, int print);
+void				sb(t_stack **b, int print);
+void				ss(t_stack **a, t_stack **b, int print);
+void				ra(t_stack **a, int print);
+void				rb(t_stack **b, int print);
+void				rr(t_stack **a, t_stack **b, int print);
+void				rra(t_stack **a, int print);
+void				rrb(t_stack **b, int print);
+void				rrr(t_stack **a, t_stack **b, int print);
+void				pb(t_stack **b, t_stack **a, int print);
+void				pa(t_stack **a, t_stack **b, int print);
 void				ft_sort_three(t_stack **stack);
 void				sort_stacks(t_stack **a, t_stack **b);
 
