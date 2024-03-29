@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 18:17:16 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/26 19:54:01 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:42:10 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,20 @@ long	ft_atol(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i++] == '-')
-			sign *= -1;
+			sign = -1;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (sign == 1 && res > (INT_MAX - (str[i] - '0')) / 10)
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
+		else if (sign == -1 && - (res) < (INT_MIN + (str[i] - '0')) / 10)
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
 		res = (str[i] - '0') + (res * 10);
 		i++;
 	}

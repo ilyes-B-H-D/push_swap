@@ -37,7 +37,7 @@ BOBJ = $(SRC_B:.c=.o)
 LIBFT = libft/libft.a
 PRINTF = ft_printf/libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 all: $(NAME)
 bonus: $(NAME_B)

@@ -6,7 +6,7 @@
 /*   By: iben-haj <iben-haj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:35:19 by iben-haj          #+#    #+#             */
-/*   Updated: 2024/03/26 19:49:52 by iben-haj         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:39:46 by iben-haj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,10 @@ void	ft_handle(t_stack **a, char *arg)
 		while (newrs[i])
 		{
 			ft_handle(a, newrs[i]);
+			free(newrs[i]);
 			i++;
 		}
+		free(newrs);
 	}
 	else
 	{
